@@ -8,7 +8,7 @@ import Login from './Login';
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
 import Footer from './Footer';
-
+import Payment from './Payment';
 
 function App() {
   const [{} , dispatch]= useStateValue();
@@ -33,7 +33,9 @@ useEffect(() => {
     }
   })
 },[])
-
+ const word = ()=>{
+  return (<h1>This is payment page</h1>)
+ }
   return (
 
     <Router>
@@ -41,6 +43,7 @@ useEffect(() => {
         <Routes>
           <Route path='/login' element={[ <Login/>]} />
           <Route path='/checkout' element={[<Header />, <Checkout /> ]} />
+          <Route path='/payment' element={[<Header /> ,<Payment/>,<Footer/>]}  />          
           <Route path="/" element={[<Header />, <Home />, <Footer/>]} />
           
         </Routes>
